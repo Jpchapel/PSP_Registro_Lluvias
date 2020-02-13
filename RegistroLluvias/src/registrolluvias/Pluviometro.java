@@ -31,7 +31,8 @@ public class Pluviometro extends Thread{
     private void escribir(int medida) throws InterruptedException {
         PERMISOS_ESCRITURA.acquire();
         
-        System.out.println(String.format("Pluviómetro %d: registrados %d mm/m2 a las %d horas", idPluviometro, medida, horaProximaEscritura));
+        System.out.println(String.format("Pluviómetro %d: registrados %d mm/m2 a las %d horas", 
+                idPluviometro, medida, horaProximaEscritura));
         REGISTROS[horaProximaEscritura] = new Dato(horaProximaEscritura, medida);
         horaProximaEscritura = (horaProximaEscritura + 1) % 24;
         

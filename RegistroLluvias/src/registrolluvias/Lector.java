@@ -29,7 +29,8 @@ public class Lector extends Thread{
         while(true){
             try {
                 Dato dato = pluviometro.leer();
-                System.out.println(String.format("Lector %d: leidos %d mm/m2 a las %d horas", idLector, dato.getMedida(), dato.getHora()));
+                System.out.println(String.format("Lector %d: leidos %d mm/m2 a las %d horas",
+                        idLector, dato.getMedida(), dato.getHora()));
                 estadistica.acumular(dato);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Lector.class.getName()).log(Level.SEVERE, null, ex);
